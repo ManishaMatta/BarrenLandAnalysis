@@ -1,0 +1,8 @@
+.DS_Store
+__pycache__
+tests/__pycache__
+htmlcov
+.idea
+.coverage
+tests/farm_plot.png
+tests/resources
