@@ -23,7 +23,6 @@ To understand the problem statement above, I first plotted the points on a graph
 Through this analysis, I understood that the output area depends on the distinct areas separated by the barren land fields mentioned in the input. 
 Further analysis revealed that we can represent the farmland as a 2D matrix, where we can map the barren lands.
 The CodeBase is divided into 3 major sections/classes:
-Certainly! Here's a refactored and elaborated description of the components mentioned:
 
 ### BLA.py
 
@@ -32,8 +31,6 @@ Certainly! Here's a refactored and elaborated description of the components ment
   - This file serves as the main entry point for executing the entire program.
   - It consolidates the entire program flow from start to finish, ensuring smooth execution.
   - It handles and manages exceptions that may occur during execution, ensuring robustness.
-
-**Responsibilities**:
 - **Execution Flow**:
   - Initializes necessary components and resources required for the program.
   - Coordinates the interaction between different modules and classes.
@@ -48,8 +45,6 @@ Certainly! Here's a refactored and elaborated description of the components ment
 - **Purpose**:
   - This class is responsible for managing input parameters and visualizing the farm with barren and fertile land.
   - It handles reading input data, processing it, and displaying results.
-
-**Responsibilities**:
 - **Input Handling**:
   - Provides methods to read input data, such as farm dimensions and barren land rectangles from user.
   - Validates and parses input data to ensure correctness and consistency.
@@ -62,8 +57,6 @@ Certainly! Here's a refactored and elaborated description of the components ment
 **BLAnalysis Class**
 - **Purpose**:
   - This class encapsulates the logic for analyzing barren and fertile land areas using the Breadth-First Search (BFS) algorithm.
-
-**Responsibilities**:
 - **BFS Implementation**:
   - Implements the BFS algorithm to traverse the farm grid and identify contiguous areas of fertile land.
   - Manages the exploration of grid cells, ensuring that all fertile areas are accurately identified and measured.
@@ -71,14 +64,8 @@ Certainly! Here's a refactored and elaborated description of the components ment
   - Computes and returns the areas of fertile land based on the results of BFS traversal.
   - Ensured that the algorithm efficiently handles large grids and complex configurations of barren land.
 
-### Elaboration:
+BLA.py serves as the orchestrator, utilizing IO.py for input/output operations and coordinating with Analysis.py to perform the actual analysis using BFS. Each module (BLA.py, IO.py, Analysis.py) focuses on specific responsibilities, promoting code organization and maintainability. BLA.py ensures robustness by encapsulating exception handling logic, safeguarding the overall execution of the program. IO.py enhances understanding by providing visual representations of the farm's barren and fertile areas, aiding in analysis and decision-making.
 
-- **Integration**: BLA.py serves as the orchestrator, utilizing IO.py for input/output operations and coordinating with Analysis.py to perform the actual analysis using BFS.
-- **Modularity**: Each module (BLA.py, IO.py, Analysis.py) focuses on specific responsibilities, promoting code organization and maintainability.
-- **Exception Handling**: BLA.py ensures robustness by encapsulating exception handling logic, safeguarding the overall execution of the program.
-- **Visualization**: IO.py enhances understanding by providing visual representations of the farm's barren and fertile areas, aiding in analysis and decision-making.
-
-By structuring the codebase in this manner, the responsibilities are clearly delineated, promoting clarity, maintainability, and scalability of the barren land analysis application. Each component plays a crucial role in ensuring the program operates efficiently and effectively, handling various aspects from input processing to algorithmic analysis and output visualization.
 #### Run Command
 `python <FILE_PATH>/BLA.py <FARM_LENGTH> <FARM_WIDTH>`
 
@@ -124,13 +111,13 @@ As the farm size increases, the memory storage requirements also increase. This 
 Though this code resolved the problem there could still be few improvements in terms of scalability, memory usage and performance.
 This problem could also be resolved by spacial compressing by reducing grid size for better memory usage.
 
-**Spatial Compression Techniques** 
-- **Sparse Matrix Representation**: Utilize sparse matrix representation for the grid to minimize memory usage, especially since most of the land might not be barren.
-- **Run-Length Encoding (RLE)**: Apply RLE to compress rows of the grid, storing only the lengths of consecutive barren or fertile land segments.
-- **Quadtree Decomposition**: Divide the grid into quadrants recursively until homogeneous regions are identified. This hierarchical structure simplifies the representation of land.
+- **Spatial Compression Techniques**
+  - **Sparse Matrix Representation**: Utilize sparse matrix representation for the grid to minimize memory usage, especially since most of the land might not be barren.
+  - **Run-Length Encoding (RLE)**: Apply RLE to compress rows of the grid, storing only the lengths of consecutive barren or fertile land segments.
+  - **Quadtree Decomposition**: Divide the grid into quadrants recursively until homogeneous regions are identified. This hierarchical structure simplifies the representation of land.
 
-**BFS Algorithm Optimization**
-- **Multi-threading/Multiprocessing**: Implement multi-threading or multiprocessing to parallelize BFS traversal, particularly beneficial for large grids.
-- **Chunk Processing**: Divide the grid into smaller chunks and process them concurrently, merging results afterward.
-- **Priority Queue**: Utilize a priority queue to prioritize cells based on specific heuristics, such as proximity to barren land.
+- **BFS Algorithm Optimization**
+  - **Multi-threading/Multiprocessing**: Implement multi-threading or multiprocessing to parallelize BFS traversal, particularly beneficial for large grids.
+  - **Chunk Processing**: Divide the grid into smaller chunks and process them concurrently, merging results afterward.
+  - **Priority Queue**: Utilize a priority queue to prioritize cells based on specific heuristics, such as proximity to barren land.
 
