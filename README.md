@@ -23,13 +23,62 @@ To understand the problem statement above, I first plotted the points on a graph
 Through this analysis, I understood that the output area depends on the distinct areas separated by the barren land fields mentioned in the input. 
 Further analysis revealed that we can represent the farmland as a 2D matrix, where we can map the barren lands.
 The CodeBase is divided into 3 major sections/classes:
-- **BLA.py** 
-  - *main class* This is the entry point for executing the code. It consolidates the entire program flow from start to finish, handling and managing exceptions during execution etc.
-- **IO.py**
-  - *InputOutput class* This class primarily contains all functions related to input parameters and visualizing the farm with barren and fertile land.
-- **Analysis.py**
-  - *BLAnalysis class* This class implements the breadth-first search (BFS) algorithm to identify the area of fertile land.
+Certainly! Here's a refactored and elaborated description of the components mentioned:
 
+### BLA.py
+
+**Main Class**
+- **Purpose**:
+  - This file serves as the main entry point for executing the entire program.
+  - It consolidates the entire program flow from start to finish, ensuring smooth execution.
+  - It handles and manages exceptions that may occur during execution, ensuring robustness.
+
+**Responsibilities**:
+- **Execution Flow**:
+  - Initializes necessary components and resources required for the program.
+  - Coordinates the interaction between different modules and classes.
+  - Manages the sequence of operations required to process the farm data and compute fertile land areas.
+- **Exception Handling**:
+  - Implements mechanisms to capture and handle exceptions gracefully.
+  - Ensures that errors or unexpected events during program execution are managed appropriately to prevent program failure.
+
+### IO.py
+
+**InputOutput Class**
+- **Purpose**:
+  - This class is responsible for managing input parameters and visualizing the farm with barren and fertile land.
+  - It handles reading input data, processing it, and displaying results.
+
+**Responsibilities**:
+- **Input Handling**:
+  - Provides methods to read input data, such as farm dimensions and barren land rectangles from user.
+  - Validates and parses input data to ensure correctness and consistency.
+- **Visualization**:
+  - Implemented function to visualize the farm grid with marked barren and fertile land areas.
+  - Generates graphical or textual representations of the farm to aid in understanding and analysis.
+
+### Analysis.py
+
+**BLAnalysis Class**
+- **Purpose**:
+  - This class encapsulates the logic for analyzing barren and fertile land areas using the Breadth-First Search (BFS) algorithm.
+
+**Responsibilities**:
+- **BFS Implementation**:
+  - Implements the BFS algorithm to traverse the farm grid and identify contiguous areas of fertile land.
+  - Manages the exploration of grid cells, ensuring that all fertile areas are accurately identified and measured.
+- **Calculation**:
+  - Computes and returns the areas of fertile land based on the results of BFS traversal.
+  - Ensured that the algorithm efficiently handles large grids and complex configurations of barren land.
+
+### Elaboration:
+
+- **Integration**: BLA.py serves as the orchestrator, utilizing IO.py for input/output operations and coordinating with Analysis.py to perform the actual analysis using BFS.
+- **Modularity**: Each module (BLA.py, IO.py, Analysis.py) focuses on specific responsibilities, promoting code organization and maintainability.
+- **Exception Handling**: BLA.py ensures robustness by encapsulating exception handling logic, safeguarding the overall execution of the program.
+- **Visualization**: IO.py enhances understanding by providing visual representations of the farm's barren and fertile areas, aiding in analysis and decision-making.
+
+By structuring the codebase in this manner, the responsibilities are clearly delineated, promoting clarity, maintainability, and scalability of the barren land analysis application. Each component plays a crucial role in ensuring the program operates efficiently and effectively, handling various aspects from input processing to algorithmic analysis and output visualization.
 #### Run Command
 `python <FILE_PATH>/BLA.py <FARM_LENGTH> <FARM_WIDTH>`
 
@@ -83,5 +132,5 @@ This problem could also be resolved by spacial compressing by reducing grid size
 **BFS Algorithm Optimization**
 - **Multi-threading/Multiprocessing**: Implement multi-threading or multiprocessing to parallelize BFS traversal, particularly beneficial for large grids.
 - **Chunk Processing**: Divide the grid into smaller chunks and process them concurrently, merging results afterward.
-- **Priority Queue**: Utilize a priority queue to prioritize cells based on specific heuristics, such as proximity to barren land."
+- **Priority Queue**: Utilize a priority queue to prioritize cells based on specific heuristics, such as proximity to barren land.
 
