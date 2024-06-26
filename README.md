@@ -1,8 +1,8 @@
 # Barren Land Analysis
 
-For this case study *myRetail RESTful service, Barren Land Analysis, Document Search*, I am using **Python v3.9** and sample examples in the shared document as my test cases for conducting the study.
+For this case study *myRetail RESTful service, Barren Land Analysis, Document Search*, I am using **Python v3.9**. Along with the sample examples in the shared document I am using few additional test cases for robustness and code verification in all corner cases.
 
-[GitHub link](https://github.com/ManishaMatta/BarrenLandAnalysis/tree/main)
+[Code GitHub link](https://github.com/ManishaMatta/BarrenLandAnalysis/tree/main)
 
 ## Technical Assessment Case Studies
 ```
@@ -36,7 +36,7 @@ The CodeBase is divided into 3 major sections/classes:
 ## Results
 The execution results for the 2 test cases are below
 ### Execution Video
-[Execution.mp4](resources%2FExecution.mp4)
+[Execution.mp4](resources%2FExecution.mp4 "") 
 ### Test Case 1
 #### Execution Summary
 ![execution_1.png](resources%2Fexecution_1.png)
@@ -52,10 +52,36 @@ The execution results for the 2 test cases are below
 
 ## Code Coverage
 The Codebase was unit tested with 99% coverage with `unitest` python package.
+#### Command to execute all the unit test cases
+`python -m unittest discover -s tests`
+#### Commands to install and map the code coverage for all classes
+`pip install coverage` <-- Installing the coverage python package
+
+`coverage run -m unittest discover -s tests` <-- executing the unit test cases to analyse the code coverage
+
+`coverage html` <-- displaying the analysed coverage as an HTML file 
+
 ![Code_Coverage_1.png](resources%2FCode_Coverage_1.png)
 ![Code_Coverage_2.png](resources%2FCode_Coverage_2.png)
 Please find the webpage displaying the code coverage distribution --> [index.html](resources%2Findex.html)
 
-## Recommendations
+## Outcome
+
+#### Time Complexity
+The time complexity of using the grid method with BFS is **O(V + E)**. Here, V represents the number of nodes, which is proportional to the area of the grid (l * w), and E denotes the edges between nodes, corresponding to direct adjacency of coordinates.
+#### Memory Usage
+As the farm size increases, the memory storage requirements also increase. This includes both the size of the 2D array representing the farm and the queue used to store all unmarked nodes for analysis.
+#### Optimization & Recommendations
 Though this code resolved the problem there could still be few improvements in terms of scalability, memory usage and performance.
-This problem could also be resolved by compressing the grid for better memory usage.
+This problem could also be resolved by spacial compressing by reducing grid size for better memory usage.
+
+**Spatial Compression Techniques** 
+- **Sparse Matrix Representation**: Utilize sparse matrix representation for the grid to minimize memory usage, especially since most of the land might not be barren.
+- **Run-Length Encoding (RLE)**: Apply RLE to compress rows of the grid, storing only the lengths of consecutive barren or fertile land segments.
+- **Quadtree Decomposition**: Divide the grid into quadrants recursively until homogeneous regions are identified. This hierarchical structure simplifies the representation of land.
+
+**BFS Algorithm Optimization**
+- **Multi-threading/Multiprocessing**: Implement multi-threading or multiprocessing to parallelize BFS traversal, particularly beneficial for large grids.
+- **Chunk Processing**: Divide the grid into smaller chunks and process them concurrently, merging results afterward.
+- **Priority Queue**: Utilize a priority queue to prioritize cells based on specific heuristics, such as proximity to barren land."
+

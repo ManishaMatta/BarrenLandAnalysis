@@ -49,16 +49,16 @@ class BLAnalysis:
         queue = [(x, y)]  # initializing a queue with the point of interest
         plot_size = 0  # initializing the area attribute to 0
         while not queue == []:  # iterator to execute until the queue is not empty
-            x, y = queue.pop(0)  #
-            if BLAnalysis.FarmLand[x][y] == 0:  #
-                plot_size += 1  #
-                BLAnalysis.FarmLand[x][y] = 1  #
-                if x > 0:  #
-                    queue.append((x-1, y))  #
-                if x < farm_length - 1:  #
-                    queue.append((x+1, y))  #
-                if y > 0:  #
-                    queue.append((x, y-1))  #
-                if y < farm_width - 1:  #
-                    queue.append((x, y+1))  #
-        return plot_size  #
+            x, y = queue.pop(0)  # removing the first element in the queue
+            if BLAnalysis.FarmLand[x][y] == 0:  # if the value of the first element is 0 -default
+                plot_size += 1  # increase the plot size by 1 - area
+                BLAnalysis.FarmLand[x][y] = 1  # update the value to 1 to be noted as read
+                if x > 0:  # verify x-coordinate is more than 0
+                    queue.append((x-1, y))  # append the previous grid coordinates [-1,0]
+                if x < farm_length - 1:  # verify x-coordinate is less than max farm length
+                    queue.append((x+1, y))  # append the next grid coordinates [1,0]
+                if y > 0:  # # verify y-coordinate is more than 0
+                    queue.append((x, y-1))  # append the below grid coordinates [0,-1]
+                if y < farm_width - 1:  # verify y-coordinate is less than max farm width
+                    queue.append((x, y+1))  # append the above grid coordinates [0,1]
+        return plot_size  # return the complete plot size which can be extended for the point
