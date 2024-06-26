@@ -44,3 +44,5 @@ def main(args):
 
 if __name__ == "__main__":
     main(sys.argv[1:])  # Code Initiation
+
+#  python /Users/Manisha/Documents/github/ManishaMatta/BarrenLandAnalysis/BLA.py 400 600
