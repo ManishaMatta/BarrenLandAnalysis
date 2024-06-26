@@ -35,6 +35,8 @@ The CodeBase is divided into 3 major sections/classes:
 
 ## Results
 The execution results for the 2 test cases are below
+### Execution Video
+[Execution.mp4](resources%2FExecution.mp4)
 ### Test Case 1
 #### Execution Summary
 ![execution_1.png](resources%2Fexecution_1.png)
@@ -53,9 +55,6 @@ The Codebase was unit tested with 99% coverage with `unitest` python package.
 ![Code_Coverage_1.png](resources%2FCode_Coverage_1.png)
 ![Code_Coverage_2.png](resources%2FCode_Coverage_2.png)
 Please find the webpage displaying the code coverage distribution --> [index.html](resources%2Findex.html)
-
-## Execution Video
-[Execution.mp4](resources%2FExecution.mp4)
 
 ## Recommendations
 Though this code resolved the problem there could still be few improvements in terms of scalability, memory usage and performance.
